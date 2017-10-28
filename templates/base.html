@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock title%}</title>
+    {% include 'snippets/css.html' %}
+</head>
+<body>
+{% block nav %}
+{% include 'snippets/nav.html' %}
+{% endblock nav %}
+
+{% block body %}
+{% endblock body %}
+<div class="container">
+    {% block content%}
+    {% endblock content %}
+</div>
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l12 s12">
+        <h5 class="white-text">Disclaimer</h5>
+        <p class="grey-text text-lighten-4">This is a simple demonstration site. Anything displayed here are for demonstration purposes only and does not represent anything already existing and they are coincidental. </p>
+      </div>
+      <!--<div class="col l4 offset-l2 s12">-->
+        <!--<h5 class="white-text">Further Info</h5>-->
+        <!--<ul>-->
+          <!--<li><a class="grey-text text-lighten-3" href="#!"></a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017
+    <a class="grey-text text-lighten-4 right" href="#!">About Us</a>
+    </div>
+  </div>
+</footer>
+{% include 'snippets/js.html' %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        {% block jquery %} {% endblock jquery %}
+    })
+</script>
+</body>
+</html>

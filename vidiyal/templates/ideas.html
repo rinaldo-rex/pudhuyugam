@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<br>
+<div class="row">
+{% for idea in object_list %}
+        <div class="col s12 m4 l6">
+        <a href="{{ idea.get_absolute_url }}">
+          <div class="card hoverable tooltipped" data-position="bottom" data-delay="50" data-tooltip="Updated {{idea.updated|timesince}} ago">
+            <div class="card-image">
+              <img src="{% static 'images/home6.jpg' %}">
+              <span class="card-title truncate">{{idea.title}}</span>
+            </div>
+            <div class="card-content black-text">
+              <p>{{ idea.desc}}</p>
+            <!--<div class="divider"></div><br>-->
+                <!--<h5 class="grey-text center-align">Usability: {{idea.u_val}} Feasibilty: {{ idea.f_val}}</h5>-->
+            </div>
+          </div>
+        </a>
+        </div>
+{% endfor %}
+</div>
+{% endblock content %}
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+</script>

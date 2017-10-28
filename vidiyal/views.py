@@ -1,3 +1,53 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView, ListView, DetailView
+from .models import Idea
 # Create your views here.
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+def format_score(value):
+    """Returns the score in thousands. Eg: 10.5k"""
+    str_score = str(value)
+
+    if int(value) < 1000:
+        return str_score
+    else:
+        return str(str(int(value)/1000).join('k'))
+
+
+class Index(TemplateView):
+    """Returns the homepage"""
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        pass  # TODO: pass "new" contents
+
+
+class IdeasList(ListView):
+    template_name = 'ideas.html'
+    model = Idea
+
+
+class IdeaDetail(DetailView):
+    template_name = 'idea_view.html'
+    model = Idea
+
+    # def get_queryset(self):
+    #     print(Idea.objects.filter(pk))
+
+    def get_object(self, queryset=None):
+        idea_id = self.kwargs.get('idea_id')
+        self.obj = get_object_or_404(Idea, id=idea_id)
+        return self.obj
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+    def get(self, response, format=None):
+        labels = ["Needed fund", "Available fund"]
+        dataset = [1000, 287]
+        data = {
+            "labels": labels,
+            "data": dataset,
+        }
+        return Response(data)

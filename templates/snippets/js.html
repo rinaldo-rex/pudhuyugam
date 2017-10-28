@@ -1,0 +1,38 @@
+<!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+
+  <!--Materialize specific content-->
+    <script type="text/javascript">
+    <!--for parallax views-->
+    $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
+    <!--For mobile button-->
+    $(".button-collapse").sideNav();
+
+    <!-- for datepicker -->
+      $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      closeOnSelect: false // Close upon selecting a date,
+    });
+
+    <!--For alert-->
+      $('#alert_close').click(function(){
+      $( "#alert_box" ).fadeOut( "fast", function() {
+      });
+    });
+
+    <!--Collapsible-->
+    $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
+    </script>
