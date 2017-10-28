@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block jquery %}
-    var endpoint = "{% url 'api-chart-data' %}"
+    var endpoint = "{% url 'api-chart-data' object.pk %}"
     var data_val= []
-    var labels = []
+    var labels = ["Needed Fund", "Available Fund"]
      $.ajax({
         method: "GET",
         url: endpoint,

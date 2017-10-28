@@ -20,10 +20,11 @@ from .views import (
     IdeasList,
     IdeaDetail,
     ChartData,
+    chart_data
 )
 urlpatterns = [
     url(r'^$', Index.as_view(), name='home'),
     url(r'^ideas/', IdeasList.as_view(), name='ideas'),
-    url(r'^idea/(?P<idea_id>\d+)/$', IdeaDetail.as_view(), name='idea-detail'),
-    url(r'^api/chart/data/', ChartData.as_view(), name='api-chart-data'),
+    url(r'^idea/(?P<pk>\d+)/$', IdeaDetail.as_view(), name='idea-detail'),
+    url(r'^api/chart/data/(?P<pk>\d+)/$', chart_data, name='api-chart-data'),
 ]
