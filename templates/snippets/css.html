@@ -1,8 +1,12 @@
+{% load static %}
 <meta charset="utf-8">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Mukta+Malar:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300|Source+Sans+Pro:300" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
   <!--Import materialize.css-->
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -12,12 +16,17 @@
      .nav-wrapper{
         font-family: 'Baloo Thambi', cursive;
      }
-     body{
-        font-family: 'Mukta Malar', sans-serif;
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-     }
+     <!--body{-->
+        <!--font-family: 'Mukta Malar', sans-serif;-->
+        <!--display: flex;-->
+        <!--min-height: 100vh;-->
+        <!--flex-direction: column;-->
+     <!--}-->
+    body{
+        font-family: 'Quicksand',
+        sans-serif;
+        font-size:150%;
+    }
 
       main {
         flex: 1 0 auto;

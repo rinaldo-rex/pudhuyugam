@@ -18,13 +18,17 @@ from django.conf.urls import url
 from .views import (
     Index,
     IdeasList,
+    IssueList,
     IdeaDetail,
+    IssueDetail,
     ChartData,
     chart_data
 )
 urlpatterns = [
     url(r'^$', Index.as_view(), name='home'),
     url(r'^ideas/', IdeasList.as_view(), name='ideas'),
+    url(r'^issues/', IssueList.as_view(), name='issues'),
     url(r'^idea/(?P<pk>\d+)/$', IdeaDetail.as_view(), name='idea-detail'),
-    url(r'^api/chart/data/(?P<pk>\d+)/$', chart_data, name='api-chart-data'),
+    url(r'^issue/(?P<pk>\d+)/$', IssueDetail.as_view(), name='issue-detail'),
+    url(r'^api/chart/idea/data/(?P<pk>\d+)/$', chart_data, name='api-chart-data'),
 ]

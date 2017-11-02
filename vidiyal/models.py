@@ -13,6 +13,7 @@ class Idea(models.Model):
     updated = models.DateTimeField(auto_now=True)
     needed_fund = models.IntegerField(default=0)
     available_fund = models.IntegerField(default=0)
+    issue = models.ForeignKey('Issue', on_delete=models.SET_NULL, null=True)
     # TODO: link an user to an idea -
     # created_by, last_update_by
     # relevant_image
@@ -22,4 +23,18 @@ class Idea(models.Model):
 
     def get_absolute_url(self):
         return reverse('idea-detail', args=[str(self.id)])
+
+
+class Issue(models.Model):
+    title = models.CharField(max_length=50, blank=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    desc = models.CharField(max_length=200)  # short description
+    description = models.TextField(max_length=20000)  # long description
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('issue-detail', args=[str(self.id)])
 

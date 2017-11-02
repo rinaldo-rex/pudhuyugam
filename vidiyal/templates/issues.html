@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<br>
+{% for issue in object_list %}
+<div class="col s12 m7">
+  <div class="card horizontal hoverable">
+    <div class="card-image">
+      <img src="https://lorempixel.com/100/190/nature/6">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+                       {% if issue.idea_set.count < 1 %} <a class="btn-floating halfway-fab waves-effect waves-light teal tooltipped animated tada" data-position="bottom" data-delay="50" data-tooltip="Add an idea to solve this issue!"><i class="material-icons">build</i></a> {% endif %}
+
+                <p>{{ issue.desc }}</p>
+      </div>
+      <div class="card-action">
+        <a href="{{ issue.get_absolute_url }}" class="btn waves-effect "> Read more </a>
+        <a href="#" class="btn {%if issue.idea_set.count <= 0 %} red {%endif%} waves-effect waves-light" >Available Ideas: {{ issue.idea_set.count }}</a>
+      </div>
+    </div>
+  </div>
+</div><br>
+{% endfor %}
+
+{% endblock content %}
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+</script>

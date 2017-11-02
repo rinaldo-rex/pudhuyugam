@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<p>
+<div class="row">
+    <div class="col s12 l4">
+    <img src="{% static 'images/home1.jpg' %}" class="responsive-img z-depth-2">
+    </div>
+    <div class="col s12 l8">
+        <div class="row center-align"><h4> {{ issue.title }} </h4></div>
+        <div class="row grey-text center-align"> <blockquote> {{ issue.desc }} </blockquote></div>
+    </div>
+</div>
+<div class="row" style="text-align: justify;">
+        {{issue.description}}
+</div>
+{% endblock content %}
+
+

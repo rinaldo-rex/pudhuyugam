@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import Idea
+from .models import Idea, Issue
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework import viewsets
@@ -31,6 +31,11 @@ class IdeasList(ListView):
     model = Idea
 
 
+class IssueList(ListView):
+    template_name = 'issues.html'
+    model = Issue
+
+
 class IdeaDetail(DetailView):
     template_name = 'idea_view.html'
     model = Idea
@@ -42,6 +47,12 @@ class IdeaDetail(DetailView):
     #     idea_id = self.kwargs.get('idea_id')
     #     self.obj = get_object_or_404(Idea, id=idea_id)
     #     return self.obj
+
+
+class IssueDetail(DetailView):
+    template_name = 'issue_view.html'
+    model = Issue
+
 
 # class ChartData(viewsets.ModelViewSet):
 def chart_data(request, pk):
