@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import Idea, Issue
+from .models import Idea, Issue, Article
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework import viewsets
@@ -87,3 +87,16 @@ class ChartData(APIView):
         idea = self.get_object(pk)
         serializer = IdeaChartSerializer(idea)
         return Response(serializer.data)
+
+
+class DiscussionList(ListView):
+
+    model = Article
+    template_name = 'discussions.html'
+
+
+class DiscussionDetail(DetailView):
+
+    model = Article
+    template_name = 'discussion_view.html'
+

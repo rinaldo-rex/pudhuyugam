@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'jchart',
     'rest_framework',
+    'markdownx', #for enabling markdown editing on admin
+    'markdown_deux', #for enabling template tags for markdown display
 ]
 
 MIDDLEWARE = [

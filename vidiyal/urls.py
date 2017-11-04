@@ -22,7 +22,9 @@ from .views import (
     IdeaDetail,
     IssueDetail,
     ChartData,
-    chart_data
+    chart_data,
+    DiscussionList,
+    DiscussionDetail,
 )
 urlpatterns = [
     url(r'^$', Index.as_view(), name='home'),
@@ -31,4 +33,7 @@ urlpatterns = [
     url(r'^idea/(?P<pk>\d+)/$', IdeaDetail.as_view(), name='idea-detail'),
     url(r'^issue/(?P<pk>\d+)/$', IssueDetail.as_view(), name='issue-detail'),
     url(r'^api/chart/idea/data/(?P<pk>\d+)/$', chart_data, name='api-chart-data'),
+    url(r'^discussions/$', DiscussionList.as_view(), name='discussions'),
+    url(r'^discussion/(?P<pk>\d+)/$', DiscussionDetail.as_view(), name='discussion-detail'),
+    # url(r'^$'),
 ]

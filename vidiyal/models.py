@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from markdownx.models import MarkdownxField
 # Create your models here.
 
 
@@ -37,4 +38,20 @@ class Issue(models.Model):
 
     def get_absolute_url(self):
         return reverse('issue-detail', args=[str(self.id)])
+
+
+class Article(models.Model):
+    """Each article that makes the discussion forum"""
+    title = models.CharField(max_length=300, blank=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    # content = models.TextField(blank=False, null=False)
+    content = MarkdownxField(blank=False, null=False)
+    issue = models.ForeignKey(Issue, on_delete=models.CASCADE)
+    # TODO: Author
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('discussion-detail', args=[str(self.id)])
 

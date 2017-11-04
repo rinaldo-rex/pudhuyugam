@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load markdown_deux_tags %}
+<br>
+<div>
+    <h3 class="center-align">{{article.title}}</h3>
+
+    <p style="text-align:justify;" class="">{% markdown %}{{ article.content }}{%endmarkdown%}</p>
+
+</div>
+{% endblock content %}
