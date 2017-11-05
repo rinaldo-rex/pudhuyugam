@@ -100,3 +100,12 @@ class DiscussionDetail(DetailView):
     model = Article
     template_name = 'discussion_view.html'
 
+
+def about(request):
+    context = {}
+    return render(
+        request,
+        'about.html',
+        context=context,
+    )
+

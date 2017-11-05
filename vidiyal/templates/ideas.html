@@ -12,8 +12,9 @@
               <img src="{% static 'images/home6.jpg' %}">
               <span class="card-title truncate">{{idea.title}}</span>
             </div>
-            <div class="card-content black-text">
-              <p>{{ idea.desc}}</p>
+            <div class="card-content">
+              <p class="black-text">{{ idea.desc|truncatewords:10}}
+</p>  <br>            {% if idea.issue %}<a href="{{idea.issue.get_absolute_url}}" class="btn col s12">Go to issue.<i class="material-icons yellow-text right">warning</i></a>{% endif %}
             <!--<div class="divider"></div><br>-->
                 <!--<h5 class="grey-text center-align">Usability: {{idea.u_val}} Feasibilty: {{ idea.f_val}}</h5>-->
             </div>

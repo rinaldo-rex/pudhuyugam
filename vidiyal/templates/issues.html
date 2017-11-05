@@ -17,7 +17,7 @@
       </div>
       <div class="card-action">
         <a href="{{ issue.get_absolute_url }}" class="btn waves-effect "> Read more </a>
-        <a href="#" class="btn {%if issue.idea_set.count <= 0 %} red {%endif%} waves-effect waves-light" >Available Ideas: {{ issue.idea_set.count }}</a>
+        <a href="{% url 'ideas' %}" class="btn {%if issue.idea_set.count <= 0 %} red {%endif%} waves-effect waves-light" >Available Ideas: {{ issue.idea_set.count }}</a>
       </div>
     </div>
   </div>
