@@ -7,14 +7,14 @@
 {% for idea in object_list %}
         <div class="col s12 m4 l6">
         <a href="{{ idea.get_absolute_url }}">
-          <div class="card hoverable tooltipped" data-position="bottom" data-delay="50" data-tooltip="Updated {{idea.updated|timesince}} ago">
+          <div class="card hoverable tooltipped teal" data-position="bottom" data-delay="50" data-tooltip="Updated {{idea.updated|timesince}} ago">
             <div class="card-image">
-              <img src="{% static 'images/home6.jpg' %}">
-              <span class="card-title truncate">{{idea.title}}</span>
+              <img src="{{ idea.img_url }}" class="responsive-img" style="height:400px; width:500px;">
+              <span class="card-title teal lighten-1">{{idea.title}}</span>
             </div>
             <div class="card-content">
               <p class="black-text">{{ idea.desc|truncatewords:10}}
-</p>  <br>            {% if idea.issue %}<a href="{{idea.issue.get_absolute_url}}" class="btn col s12">Go to issue.<i class="material-icons yellow-text right">warning</i></a>{% endif %}
+</p>  <br>            {% if idea.issue %}<a href="{{idea.issue.get_absolute_url}}" class="btn col s12 grey waves-effect">Go to issue.<i class="material-icons yellow-text right">warning</i></a>{% endif %}
             <!--<div class="divider"></div><br>-->
                 <!--<h5 class="grey-text center-align">Usability: {{idea.u_val}} Feasibilty: {{ idea.f_val}}</h5>-->
             </div>

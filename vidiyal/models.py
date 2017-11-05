@@ -14,7 +14,8 @@ class Idea(models.Model):
     updated = models.DateTimeField(auto_now=True)
     needed_fund = models.IntegerField(default=0)
     available_fund = models.IntegerField(default=0)
-    issue = models.ForeignKey('Issue', on_delete=models.SET_NULL, null=True)
+    issue = models.ForeignKey('Issue', on_delete=models.SET_NULL, null=True, blank=True)
+    img_url = models.URLField(null=True, blank=True)
     # TODO: link an user to an idea -
     # created_by, last_update_by
     # relevant_image
@@ -32,6 +33,7 @@ class Issue(models.Model):
     desc = models.CharField(max_length=200)  # short description
     description = models.TextField(max_length=20000)  # long description
     updated = models.DateTimeField(auto_now=True)
+    img_url = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.title
