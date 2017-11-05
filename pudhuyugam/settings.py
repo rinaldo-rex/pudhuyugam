@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'm@dxe7$))r(=ywd++_%01ln+!319$^
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pudhuyugam.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
