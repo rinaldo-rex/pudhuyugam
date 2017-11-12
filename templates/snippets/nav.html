@@ -1,11 +1,19 @@
 <nav>
         <div class="nav-wrapper teal">
           <a href="{% url 'home' %}" class="brand-logo " style="padding-left:10px;"><i class="material-icons">cloud</i>விடியல்</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="{% url 'ideas' %}"><i class="material-icons left">build</i>Ideas</a></li>
             <li><a href="{% url 'issues' %}"><i class="material-icons left">warning</i>Issues</a></li>
             <li><a href="{% url 'discussions' %}"><i class="material-icons left">people</i>Discussions</a></li>
             <li><a href="{% url 'about' %}"><i class="material-icons left">info</i>About</a></li>
+          </ul>
+          <ul class="side-nav teal" id="mobile-demo">
+            <li><a href="{% url 'home' %}" class="white-text"><i class="material-icons white-text">cloud</i>விடியல்</a></li>
+            <li><a href="{% url 'ideas' %}" class="white-text"><i class="material-icons left white-text">build</i>Ideas</a></li>
+            <li><a href="{% url 'issues' %" class="white-text"><i class="material-icons left white-text">warning</i>Issues</a></li>
+            <li><a href="{% url 'discussions' %}" class="white-text"><i class="material-icons left white-text">people</i>Discussions</a></li>
+            <li><a href="{% url 'about' %}" class="white-text"><i class="material-icons left white-text">info</i>About</a></li>
           </ul>
         </div>
     </nav>
